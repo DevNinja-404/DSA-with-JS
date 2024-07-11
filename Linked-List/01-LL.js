@@ -63,6 +63,23 @@ class LinkedList {
     }
     return temp;
   }
+
+  // the unshift() method will allow us to add a new node at the begining of our linked list:
+  unshift(value) {
+    const newNode = new Node(value);
+
+    // If the linked list is empty :
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    }
+
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+
+    return this;
+  }
 }
 
 const myLinkedList = new LinkedList(1);
@@ -75,9 +92,14 @@ console.log(myLinkedList);
 console.log("-----------------");
 
 // Testing the pop method:
-myLinkedList.pop();
-console.log(myLinkedList);
-console.log("-----------------");
-console.log(myLinkedList.pop());
+// myLinkedList.pop();
+// console.log(myLinkedList);
+// console.log("-----------------");
+// console.log(myLinkedList.pop());
+// console.log("-----------------");
+// console.log(myLinkedList);
+
+// Testing the unshift method:
+myLinkedList.unshift(20);
 console.log("-----------------");
 console.log(myLinkedList);
