@@ -38,10 +38,46 @@ class LinkedList {
     this.tail = newNode;
     this.length++;
   }
+
+  //the pop() method will allow us to remove the last item from our linked list
+  pop() {
+    // If we don't have any head which means there are no nodes in the linked list,then :
+    if (!this.head) return null;
+
+    let temp = this.head;
+    let prev = this.head;
+
+    while (temp.next) {
+      prev = temp;
+      temp = prev.next;
+    }
+
+    this.tail = prev;
+    this.tail.next = null;
+    this.length--;
+
+    // If we had only one node in the linked list then :
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return temp;
+  }
 }
 
 const myLinkedList = new LinkedList(1);
 console.log(myLinkedList);
 console.log("-----------------");
+
+// Testing the push method:
 myLinkedList.push(5);
+console.log(myLinkedList);
+console.log("-----------------");
+
+// Testing the pop method:
+myLinkedList.pop();
+console.log(myLinkedList);
+console.log("-----------------");
+console.log(myLinkedList.pop());
+console.log("-----------------");
 console.log(myLinkedList);
