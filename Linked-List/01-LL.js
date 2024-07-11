@@ -80,6 +80,38 @@ class LinkedList {
 
     return this;
   }
+
+  // the shift() method will allow us to remove the first node from our linked list:
+  shift() {
+    if (!this.head) return null;
+
+    // point the first node
+    let temp = this.head;
+    // move the head to the next node
+    this.head = this.head.next;
+    // remove the first node
+    temp.next = null;
+    this.length--;
+
+    if (this.length === 0) this.tail = null;
+
+    return temp;
+  }
+
+  // the getFirst() method will always return the first node of the linked list :
+  getFirst() {
+    if (!this.head) return null;
+    return this.head;
+  }
+  // the getLast() method will always return the last element of our linked list
+  getLast() {
+    if (!this.tail) return null;
+    let temp = this.head;
+    while (temp) {
+      if (!temp.next) return temp;
+      temp = temp.next;
+    }
+  }
 }
 
 const myLinkedList = new LinkedList(1);
@@ -87,9 +119,9 @@ console.log(myLinkedList);
 console.log("-----------------");
 
 // Testing the push method:
-myLinkedList.push(5);
-console.log(myLinkedList);
-console.log("-----------------");
+myLinkedList.push(2);
+// console.log(myLinkedList);
+// console.log("-----------------");
 
 // Testing the pop method:
 // myLinkedList.pop();
@@ -98,8 +130,21 @@ console.log("-----------------");
 // console.log(myLinkedList.pop());
 // console.log("-----------------");
 // console.log(myLinkedList);
+// console.log("-----------------");
 
 // Testing the unshift method:
-myLinkedList.unshift(20);
-console.log("-----------------");
-console.log(myLinkedList);
+myLinkedList.unshift(0);
+// console.log(myLinkedList);
+// console.log("-----------------");
+
+// Testing the shift method:
+// myLinkedList.shift();
+// console.log(myLinkedList);
+// console.log("-----------------");
+
+// Testing the getFirst Method:
+// console.log(myLinkedList.getFirst());
+// console.log("-----------------");
+
+// Testing the getLast Method:
+// console.log(myLinkedList.getLast());
