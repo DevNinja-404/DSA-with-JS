@@ -112,6 +112,22 @@ class LinkedList {
       temp = temp.next;
     }
   }
+
+  //  the get() method takes one parameter "index" and returns the node at that index in the linked list
+  get(index) {
+    let counter = 0;
+    let temp = this.head;
+
+    while (temp) {
+      if (counter === index) {
+        return temp;
+      }
+      counter++;
+      temp = temp.next;
+    }
+
+    return null;
+  }
 }
 
 const myLinkedList = new LinkedList(1);
@@ -148,3 +164,10 @@ myLinkedList.unshift(0);
 
 // Testing the getLast Method:
 // console.log(myLinkedList.getLast());
+
+// Testing the get method:
+console.log(myLinkedList.get(0));
+console.log(myLinkedList.get(1));
+console.log(myLinkedList.get(2));
+console.log(myLinkedList.get(3));
+console.log(myLinkedList.get(4));
